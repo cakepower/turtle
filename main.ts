@@ -1,0 +1,43 @@
+input.onGesture(Gesture.LogoUp, function () {
+    strip.showColor(neopixel.colors(NeoPixelColors.Black))
+    strip.show()
+})
+input.onGesture(Gesture.TiltLeft, function () {
+    strip.showColor(neopixel.colors(NeoPixelColors.Red))
+    strip.show()
+})
+let strip: neopixel.Strip = null
+strip = neopixel.create(DigitalPin.P15, 8, NeoPixelMode.RGB)
+basic.forever(function () {
+    if (490 < pins.analogReadPin(AnalogPin.P3)) {
+        pins.servoWritePin(AnalogPin.P10, 180)
+        pins.servoWritePin(AnalogPin.P14, 180)
+        pins.servoWritePin(AnalogPin.P11, 180)
+        basic.pause(200)
+        pins.servoWritePin(AnalogPin.P16, 180)
+        basic.pause(100)
+        pins.servoWritePin(AnalogPin.P13, 90)
+        pins.servoWritePin(AnalogPin.P14, 90)
+        pins.servoWritePin(AnalogPin.P11, 150)
+        basic.pause(200)
+        pins.servoWritePin(AnalogPin.P16, 90)
+        basic.pause(100)
+        pins.servoWritePin(AnalogPin.P13, 65)
+        pins.servoWritePin(AnalogPin.P14, 65)
+        pins.servoWritePin(AnalogPin.P11, 86)
+        basic.pause(200)
+        pins.servoWritePin(AnalogPin.P16, 65)
+        basic.pause(100)
+        pins.servoWritePin(AnalogPin.P13, 90)
+        pins.servoWritePin(AnalogPin.P14, 90)
+        pins.servoWritePin(AnalogPin.P11, 180)
+        basic.pause(200)
+        pins.servoWritePin(AnalogPin.P16, 90)
+        basic.pause(100)
+    } else {
+        pins.servoWritePin(AnalogPin.P13, 90)
+        pins.servoWritePin(AnalogPin.P14, 90)
+        pins.servoWritePin(AnalogPin.P16, 90)
+        pins.servoWritePin(AnalogPin.P16, 90)
+    }
+})
